@@ -1,6 +1,5 @@
 package com.kevinnh;
 
-import java.io.IOException;
 
 public final class App {
     

@@ -10,11 +10,7 @@ public class Controller {
     private Scanner input = new Scanner(System.in);
     private boolean quit = false;
     private boolean isViewing = true;
-
-    public boolean isQuit() {
-        return quit;
-    }
-
+ 
     public void handleMenu(Client tickets) {
         ArrayList<Ticket> allTickets = tickets.getTicketDatabase();
         View ui = new View();
@@ -44,16 +40,14 @@ public class Controller {
                 default:
                     System.out.println("\n\nTry again");
                     break;
-            }
-
+            } 
         } catch (InputMismatchException error) {
             input.nextLine();
             System.out.println("\n\nInteger input required. Try again");
         }
     }
 
-    private void navigatePages(View ui) {
-
+    private void navigatePages(View ui) { 
         System.out.println("\n[1]Next Page [2]Previous Page [3]Main Menu ");
         try {
             switch (input.nextInt()) {
@@ -71,12 +65,15 @@ public class Controller {
                 default:
                     System.out.println("\n\nTry again");
                     break;
-            }
-
+            } 
         } catch (InputMismatchException error) {
             input.nextLine();
             System.out.println("\n\nInteger input required. Try again");
         }
+    } 
+
+    public boolean isQuit() {
+        return quit;
     }
 
     private void setQuit(boolean quit) {

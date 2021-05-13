@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class View {
 
     private int pageNumber = 1;
-    final int pageSize = 10;
+    final int pageSize = 25;
     int totalPages = 1;
 
     public void displayMenu() {
@@ -17,6 +17,8 @@ public class View {
     }
 
     public void displayAllTickets(ArrayList<Ticket> tickets) {
+        if (tickets.size() <= 0 ){return;}
+
         // rounds up
         totalPages = (int) Math.ceil((float) tickets.size() / pageSize);
         // algorithm
@@ -28,8 +30,13 @@ public class View {
     }
 
     public void displayTicket(int index, ArrayList<Ticket> tickets) {
+        if (tickets.size() <= 0 ){return;}
+        if (index > tickets.size() ){
+            System.out.println("Ticket Number not valid");
+            return;}
+
         Ticket ticket = tickets.get(index - 1);
-        System.out.println("\nID:" + ticket.getId() + " Subject: " + ticket.getSubject());
+        System.out.println("\n[" + ticket.getId() + "] Subject: " + ticket.getSubject());
         System.out.println("\nCreated At: " + ticket.getCreatedAt() + "\nRequester ID: " + ticket.getRequesterId());
         System.out.println("Description: " + ticket.getDescription());
 
