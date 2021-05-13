@@ -140,21 +140,8 @@ public class Ticket {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(Ticket.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this)))
-                .append('[');
-
-        sb.append("subject");
-        sb.append('=');
-        sb.append(((this.subject == null) ? "<null>" : this.subject));
-        sb.append(',');
-
-        if (sb.charAt((sb.length() - 1)) == ',') {
-            sb.setCharAt((sb.length() - 1), ']');
-        } else {
-            sb.append(']');
-        }
-        return sb.toString();
+        return "#" + getId() + " Subject='" + getSubject() + "'" + ", Created At='" + getCreatedAt() + ", Status= "
+                + getStatus().toUpperCase() + " " + ", Requester Id='" + getRequesterId() + "'";
     }
 
 }
