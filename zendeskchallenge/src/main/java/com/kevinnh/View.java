@@ -1,6 +1,5 @@
 package com.kevinnh;
-
-import java.io.IOException;
+ 
 import java.util.ArrayList;
 
 public class View {
@@ -23,7 +22,7 @@ public class View {
         totalPages = (int) Math.ceil((float) tickets.size() / pageSize);
         // algorithm
         int to = Math.min(pageNumber * pageSize, tickets.size());
-        int from = to - pageSize;
+        int from = Math.max(to - pageSize, 0);
         for (int i = from; i < to; i++) {
             System.out.println(tickets.get(i).toString());
         }

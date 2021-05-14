@@ -2,6 +2,7 @@ package com.kevinnh;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 
@@ -18,6 +19,10 @@ public class Client {
     return ticketDatabase;
   }
 
+  public void addTickets(List<Ticket> list){
+      ticketDatabase.addAll(list);
+  }
+
   public void getJSONTickets() {
     OkHttpClient client = new OkHttpClient().newBuilder().build();
     Request request = new Request.Builder().url(zendeskURL).method("GET", null)
@@ -29,7 +34,7 @@ public class Client {
 
       Gson gson = new Gson();
       Tickets ticketResponse = gson.fromJson(response.body().string(), Tickets.class);
-      ticketDatabase = (ArrayList<Ticket>) ticketResponse.getTickets();
+      addTickets(ticketResponse.getTickets());
 
       if (ticketResponse.getNextPage() != null) {
         getNextPage(ticketResponse.getNextPage());
@@ -51,7 +56,7 @@ public class Client {
 
       Gson gson = new Gson();
       Tickets ticketResponse = gson.fromJson(response.body().string(), Tickets.class);
-      ticketDatabase.addAll(ticketResponse.getTickets());
+      addTickets(ticketResponse.getTickets());
 
       if (ticketResponse.getNextPage() != null) {
         getNextPage(ticketResponse.getNextPage());
@@ -60,5 +65,6 @@ public class Client {
       System.out.println(e.toString());
     }
   }
+
 
 }
