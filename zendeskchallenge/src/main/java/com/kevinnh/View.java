@@ -32,7 +32,7 @@ public class View {
 
     public void displayTicket(int index, ArrayList<Ticket> tickets) {
         if (tickets.size() <= 0 ){return;}
-        if (index > tickets.size() ){
+        if (index > tickets.size() || index < 0  ){
             System.out.println("Ticket Number not valid");
             return;}
 
