@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * The Controller class acts as the bridge between the user inputs and changing the app view to the user. 
+ */
 public class Controller {
 
     private Scanner input = new Scanner(System.in);
@@ -47,7 +50,7 @@ public class Controller {
     }
 
     private void navigatePages(View ui) { 
-        System.out.println("\n[1]Next Page [2]Previous Page [3]Main Menu ");
+        ui.displayPageOptions();
         try {
             switch (input.nextInt()) {
 

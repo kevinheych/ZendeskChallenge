@@ -1,7 +1,9 @@
 package com.kevinnh;
  
 import java.util.ArrayList;
-
+/**
+ * The View class is he user interface of the application. 
+ */
 public class View {
 
     private int pageNumber = 1;
@@ -55,6 +57,18 @@ public class View {
         if (pageNumber > 1) {
             pageNumber--;
         }
+    }
+
+    public void displayPageOptions(){
+        String msg = "\n";
+        if (pageNumber < totalPages){
+            msg += "[1]Next Page ";
+        }
+        if (pageNumber>1){
+            msg += "[2]Previous Page ";
+        }
+        msg += "[3]Main Menu";
+        System.out.println(msg);
     }
 
 }

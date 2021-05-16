@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
-
 import okhttp3.*;
 
+/**
+ * This class uses okhttp lib to make requests to the Zendesk API to collect ticket data
+ */
 public class Client {
 
   private String zendeskURL = "https://kevinnh.zendesk.com/api/v2/tickets.json";
@@ -30,7 +32,7 @@ public class Client {
 
     try (Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful())
-        throw new IOException("Unexpected code " + response);
+        throw new IOException("API is unavailable or response is invalid");
 
       Gson gson = new Gson();
       Tickets ticketResponse = gson.fromJson(response.body().string(), Tickets.class);
@@ -52,7 +54,7 @@ public class Client {
 
     try (Response response = client.newCall(request).execute()) {
       if (!response.isSuccessful())
-        throw new IOException("Unexpected code " + response);
+        throw new IOException("API is unavailable or response is invalid");
 
       Gson gson = new Gson();
       Tickets ticketResponse = gson.fromJson(response.body().string(), Tickets.class);

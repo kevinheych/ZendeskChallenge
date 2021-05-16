@@ -2,13 +2,12 @@
 
 A CLI TicketViewer coded in Java.
 
-## Folder Structure
+## System Requirements
 
-The workspace contains two folders by default, where:
+Java 8 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Usage instructions
 
-## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+Download ticketviewer.jar
+Open cmd and change directory to file location.
+Enter 'java -jar ticketviewr.jar' 

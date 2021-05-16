@@ -46,8 +46,8 @@ public class Ticket {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(long i) {
+        this.id = i;
     }
 
     public String getCreatedAt() {
@@ -141,7 +141,7 @@ public class Ticket {
     @Override
     public String toString() {
         return "#" + getId() + " Subject='" + getSubject() + "'" + ", Created At='" + getCreatedAt() + ", Status= "
-                + getStatus().toUpperCase() + " " + ", Requester Id='" + getRequesterId() + "'";
+                + getStatus() + " " + ", Requester Id='" + getRequesterId() + "'";
     }
 
 }
