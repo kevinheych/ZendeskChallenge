@@ -8,6 +8,11 @@ Java 8
 
 ## Usage instructions
 
-Download ticketviewer.jar
+Download latest TicketViewer.jar from Releases tab 
+
+Link for releases
+https://github.com/kevinheych/ZendeskChallenge/releases 
+
 Open cmd and change directory to file location.
-Enter 'java -jar ticketviewr.jar' 
+
+Enter `java -jar TicketViewer.jar` 
